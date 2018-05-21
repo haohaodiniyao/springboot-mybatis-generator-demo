@@ -1,5 +1,6 @@
 package com.example.springboot.mybatis.generator;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -15,7 +16,19 @@ public class SpringbootMybatisGeneratorDemoApplicationTests {
 	private CpsBizGeMapper cpsBizGeMapper;
 	@Test
 	public void contextLoads() {
-		cpsBizGeMapper.selectByExample(null);
+		CpsBizGeExample cpsBizGeExample = new CpsBizGeExample();
+		cpsBizGeExample.setOrderByClause("opt_date desc");
+		CpsBizGeExample.Criteria criteria = cpsBizGeExample.createCriteria();
+		criteria.andOptDateEqualTo(new DateTime("2018-05-14").toDate());
+		cpsBizGeMapper.selectByExample(cpsBizGeExample);
+
+		//clear
+		cpsBizGeExample.clear();
+		cpsBizGeExample.setOrderByClause("opt_date asc");
+		criteria = cpsBizGeExample.createCriteria();
+		criteria.andBizContentEqualTo("111");
+		criteria.andOptDateEqualTo(new DateTime("2018-05-12").toDate());
+		cpsBizGeMapper.selectByExample(cpsBizGeExample);
 	}
 
 }
