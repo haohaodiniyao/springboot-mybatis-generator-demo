@@ -1,4 +1,4 @@
-package com.example.springboot.mybatis.generator;
+package com.example.springboot.mybatis.generator.mybatis;
 
 import java.util.Date;
 

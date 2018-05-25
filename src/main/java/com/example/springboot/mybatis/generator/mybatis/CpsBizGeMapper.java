@@ -1,7 +1,5 @@
-package com.example.springboot.mybatis.generator;
+package com.example.springboot.mybatis.generator.mybatis;
 
-import com.example.springboot.mybatis.generator.CpsBizGe;
-import com.example.springboot.mybatis.generator.CpsBizGeExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
